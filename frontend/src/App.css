@@ -1,0 +1,116 @@
+/* src/styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9; /* Light neutral background */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form-container {
+  background-color: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+header {
+  background-color: #0073e6; /* Neutral blue */
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px; /* Increased padding below the description */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px; /* Increased padding between form and footer */
+}
+
+label {
+  font-size: 1em;
+  font-weight: 500;
+  color: #333;
+}
+
+input[type="text"] {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px;
+  background-color: #0073e6; /* Neutral blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5; /* Darker blue */
+}
+
+button:focus {
+  outline: none;
+  border: 2px solid #005bb5;
+}
+
+input[type="text"]:focus {
+  border-color: #0073e6;
+}
+
+/* Footer Styles */
+.footer {
+  font-size: 1em;
+  margin-top: 30px;
+}
+
+.footer a {
+  color: #0073e6;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
