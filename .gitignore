@@ -1,0 +1,7 @@
+#.env files
+backend/.env
+
+#pycache files
+__pycache__
+
+.DS_Store
