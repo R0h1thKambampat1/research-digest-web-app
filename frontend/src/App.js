@@ -3,22 +3,29 @@ import "./App.css";
 
 function App() {
   const [query, setQuery] = useState("");
-  // const apiUrl = process.env.REACT_APP_BACKEND_API_URL;
+  const [loading, setLoading] = useState(false);
+
   const handleSearch = async e => {
     e.preventDefault();
+    setLoading(true);
 
-    const response = await fetch("https://research-digest-web-app-2.onrender.com/scrape", {
-      method: "POST",
-      body: new URLSearchParams({
-        query: query
-      })
-    });
-
-    const blob = await response.blob();
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = query + ".docx";
-    link.click();
+    try {
+      const response = await fetch("https://research-digest-web-app-2.onrender.com/scrape", {
+        method: "POST",
+        body: new URLSearchParams({
+          query: query
+        })
+      });
+      const blob = await response.blob();
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = query + ".docx";
+      link.click();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -39,8 +46,10 @@ function App() {
           <p className="description">At the moment, the tool gathers articles from arXiv, but I plan to expand it to other research sites that allow scraping to enhance the research process. If you have suggestions or ideas for additional features that could make this tool more useful, feel free to reach out to me via LinkedIn, which you’ll find in the footer. Until then, happy researching!</p>
         </section>
         <form onSubmit={handleSearch}>
-          <input type="text" value={query} onChange={e => setQuery(e.target.value)} placeholder="Enter query" />
-          <button type="submit">Search</button>
+          <input type="text" value={query} onChange={e => setQuery(e.target.value)} placeholder="Enter query" disabled={loading} required />
+          <button type="submit" disabled={loading}>
+            {loading ? "Loading.... Please wait a few seconds" : "Search"}
+          </button>
         </form>
         <footer className="footer">
           <p>

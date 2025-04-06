@@ -207,3 +207,11 @@ button:focus {
     padding: 1rem; /* Increase button size */
   }
 }
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+input:disabled {
+  background-color: #f0f0f0;
+}
