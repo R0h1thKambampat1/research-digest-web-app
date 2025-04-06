@@ -3,11 +3,11 @@ import "./App.css";
 
 function App() {
   const [query, setQuery] = useState("");
-  const apiUrl = process.env.REACT_APP_BACKEND_API_URL;
+  // const apiUrl = process.env.REACT_APP_BACKEND_API_URL;
   const handleSearch = async e => {
     e.preventDefault();
 
-    const response = await fetch(`${apiUrl}/scrape`, {
+    const response = await fetch("https://research-digest-web-app-2.onrender.com/scrape", {
       method: "POST",
       body: new URLSearchParams({
         query: query
