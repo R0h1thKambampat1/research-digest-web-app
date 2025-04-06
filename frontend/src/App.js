@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [query, setQuery] = useState("");
-  const apiUrl = process.env.API_URL;
+  const apiUrl = process.env.REACT_APP_BACKEND_API_URL;
   const handleSearch = async e => {
     e.preventDefault();
 
