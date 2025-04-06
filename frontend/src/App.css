@@ -1,5 +1,9 @@
 /* src/styles.css */
-* {
+
+/* Global Reset */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,81 +16,98 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 16px; /* Add space around the body */
 }
 
+/* App Container */
 .app-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  min-height: 100vh;
 }
 
+/* Form Container */
 .form-container {
   background-color: white;
   width: 100%;
-  max-width: 600px;
-  padding: 30px;
+  max-width: 600px; /* Max width for larger screens */
+  padding: 2rem; /* Consistent padding with rem */
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
+/* Header Styling */
 header {
-  background-color: #0073e6; /* Neutral blue */
+  background-color: #0073e6;
   color: white;
-  padding: 15px;
+  padding: 1rem;
   border-radius: 8px;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
+/* Title */
 h1 {
-  font-size: 2.2em;
-  font-weight: bold;
+  font-size: 2.4rem; /* Scalable font size */
+  font-weight: 700;
 }
 
+/* Description Styling */
 .description {
-  font-size: 1.1em;
+  font-size: 1.125rem; /* Relative font size */
   color: #555;
   line-height: 1.6;
-  margin-bottom: 30px; /* Increased padding below the description */
+  margin-bottom: 2rem;
 }
 
+/* Form Styling */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 30px; /* Increased padding between form and footer */
+  gap: 1.5rem;
 }
 
+/* Label Styling */
 label {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 500;
   color: #333;
 }
 
+/* Input Styling */
 input[type="text"] {
-  padding: 12px;
+  padding: 0.75rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1em;
+  font-size: 1rem;
   color: #333;
-  margin-bottom: 20px;
+  transition: border 0.3s ease;
 }
 
+input[type="text"]:focus {
+  border-color: #0073e6;
+  outline: none;
+}
+
+/* Button Styling */
 button {
-  padding: 12px;
-  background-color: #0073e6; /* Neutral blue */
+  padding: 0.75rem;
+  background-color: #0073e6;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1.1em;
+  font-size: 1.125rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #005bb5; /* Darker blue */
+  background-color: #005bb5;
 }
 
 button:focus {
@@ -94,14 +115,10 @@ button:focus {
   border: 2px solid #005bb5;
 }
 
-input[type="text"]:focus {
-  border-color: #0073e6;
-}
-
-/* Footer Styles */
+/* Footer Styling */
 .footer {
-  font-size: 1em;
-  margin-top: 30px;
+  font-size: 1rem;
+  margin-top: 2rem;
 }
 
 .footer a {
@@ -113,4 +130,80 @@ input[type="text"]:focus {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design */
+
+/* For Small Screens (Mobile) */
+@media (max-width: 600px) {
+  body {
+    padding: 16px; /* Adequate padding for smaller screens */
+  }
+
+  .form-container {
+    padding: 1.5rem; /* Adjust padding for small screens */
+    max-width: 100%; /* Full width for smaller screens */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Adjust heading size for mobile */
+  }
+
+  .description {
+    font-size: 1rem; /* Adjust description for mobile */
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.75rem; /* Adjust button padding */
+  }
+}
+
+/* For Tablets and Medium Screens (600px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .form-container {
+    max-width: 80%; /* Use more width for tablets */
+  }
+
+  h1 {
+    font-size: 2rem; /* Slightly smaller heading for tablets */
+  }
+
+  .description {
+    font-size: 1.125rem; /* Adjust description font size */
+  }
+
+  input[type="text"] {
+    padding: 0.75rem; /* Adjust input size */
+  }
+
+  button {
+    font-size: 1.125rem;
+    padding: 0.75rem; /* Adjust button size */
+  }
+}
+
+/* For Large Screens and Desktops (1024px and above) */
+@media (min-width: 1024px) {
+  .form-container {
+    max-width: 600px; /* Maintain max width for larger screens */
+    padding: 2rem; /* Padding for larger screens */
+  }
+
+  h1 {
+    font-size: 2.4rem; /* Larger heading for desktop */
+  }
+
+  .description {
+    font-size: 1.125rem; /* Standard description size */
+  }
+
+  input[type="text"] {
+    font-size: 1.125rem; /* Slightly larger input font */
+  }
+
+  button {
+    font-size: 1.125rem;
+    padding: 1rem; /* Increase button size */
+  }
 }
