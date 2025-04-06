@@ -3,11 +3,11 @@ import "./App.css";
 
 function App() {
   const [query, setQuery] = useState("");
-
+  const apiUrl = process.env.API_URL;
   const handleSearch = async e => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/scrape", {
+    const response = await fetch(`${apiUrl}/scrape`, {
       method: "POST",
       body: new URLSearchParams({
         query: query
